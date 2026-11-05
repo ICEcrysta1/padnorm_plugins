@@ -4,7 +4,7 @@
   version: "0.1.0"
   author: "ICE_crystal"
   description: "对左右摇杆进行一阶 RC 低通平滑，并叠加零均值、固定幅度的随机方向抖动。"
-  download_url: "https://raw.githubusercontent.com/ICEcrysta1/padnorm_plugins/plugins/ICE_crystal/rc_filter_sticks/manifest.yaml"
+  download_url: "https://raw.githubusercontent.com/ICEcrysta1/padnorm_plugins/refs/heads/main/plugins/ICE_crystal/rc_filter_sticks/manifest.yaml"
 
 - id: "passthrough_example"
   guid: "019b6bae-8fc4-49c9-aef2-2e392d022e7e"
@@ -12,4 +12,4 @@
   version: "0.1.0"
   author: "ICE_crystal"
   description: "接收抽象输入并保持直通，可修改源码添加处理逻辑。"
-  download_url: "https://raw.githubusercontent.com/ICEcrysta1/padnorm_plugins/plugins/ICE_crystal/passthrough_example/manifest.yaml"
+  download_url: "https://raw.githubusercontent.com/ICEcrysta1/padnorm_plugins/refs/heads/main/plugins/ICE_crystal/passthrough_example/manifest.yaml"
