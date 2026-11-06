@@ -3,6 +3,9 @@ guid: 37a552a6-84ce-497d-9a24-23778e403766
 name: RC滤波摇杆
 version: "0.1.0"
 description: 对左右摇杆进行一阶 RC 低通平滑，并叠加零均值、固定幅度的随机方向抖动。
+files:
+  - main.lua
+  - config.yaml
 sticks:
   - id: left
     name: RC左摇杆

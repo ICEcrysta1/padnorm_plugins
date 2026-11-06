@@ -3,6 +3,10 @@ guid: 019b6bae-8fc4-49c9-aef2-2e392d022e7e
 name: 直通示例
 version: "0.1.0"
 description: 接收抽象输入并保持直通，可修改源码添加处理逻辑。
+files:
+  - main.lua
+  - icon.png
+  - README.md
 logo: icon.png
 sticks:
   - id: stick
