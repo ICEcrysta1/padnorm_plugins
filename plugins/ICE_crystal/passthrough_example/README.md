@@ -5,8 +5,9 @@
 - `manifest.yaml`：声明固定 GUID、插件名称、展示版本与简介、logo、注册按钮及其图标；GUID 沿用在线仓库官方插件示例的 `019b6bae-8fc4-49c9-aef2-2e392d022e7e`。
 - `icon.png`：由主程序现有 `plugin.svg` 导出的 PNG，供示例 logo 和直通按钮共同使用；可自行替换图片及声明路径。
 - `main.lua`：插件入口；修改 `process_button`、`process_stick` 或 `process_trigger` 即可加入自己的处理逻辑。
+- `config.yaml`：由 manifest 的 `config` 指定，声明两个开关、百分比滑块和手柄按钮选择；控件顺序、文字、范围、步长及当前值由插件定义。
 
-将整个 `passthrough_example` 文件夹复制到 **EXE 同级的 `plugins/`** 下，再启动或重启程序，无须重新编译。例如本仓库的 Release 目录为 `target/release/plugins/passthrough_example/`。
+将整个 `passthrough_example` 文件夹复制到 **EXE 同级的 `plugins/offline/`** 下，再启动或重启程序，无须重新编译；也可以使用“从文件安装”选择本目录的 `manifest.yaml`。构建不会自动复制此示例。例如本仓库的 Release 目录为 `target/release/plugins/offline/passthrough_example/`。
 
 调试时直接修改运行目录中的 `main.lua`，或将源码改动复制过去后重启；程序读取的是 EXE 同级的安装副本。
 
@@ -37,6 +38,6 @@ left_trigger:
 - 按钮和扳机分别保留 `pressed` 与 `value`，不从行程推导按下状态；宿主按 OR / 最大行程合并贡献。
 - 摇杆的期望位置减去输入位置后作为增量返回，默认增量为零，避免主体与插件各输出一份原始坐标而翻倍，也不提前量化。
 
-默认单源绑定、保留原有手柄输出映射时保持直通。需要独立处理左右轴时，为各轴增加不同注册 ID。完整输入输出、生命周期及异步接口见[插件说明](../README.md)。
+默认单源绑定、保留原有手柄输出映射时保持直通。在插件详情中可以关闭贡献、开启“按住按钮启用”，或降低扳机输出强度；默认值分别为启用、不门控及 100%。按钮候选仅显示当前选中且连接手柄的实际能力，配置保存 `south` 等通用身份，不保存键盘 Shift。Lua 在 `init` 中通过 `host.config` 获取当前值；保存后由宿主重建会话，无须重启程序。扳机强度通过 `delta` 调整主体行程，默认差值为零。
 
-在线下载使用 manifest.yaml 中的 `files` 相对文件列表，以该声明文件所在 URL 的目录为根下载。列表只填写插件内路径，不包含服务器、仓库、分支或平台字段；manifest.yaml 自身由主程序自动保存。
+需要独立处理左右轴时，为各轴增加不同注册 ID。完整配置格式、输入输出、生命周期及异步接口见[插件说明](../README.md)。

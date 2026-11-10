@@ -7,7 +7,9 @@ files:
   - main.lua
   - icon.png
   - README.md
+  - config.yaml
 logo: icon.png
+config: config.yaml
 sticks:
   - id: stick
     name: 直通摇杆

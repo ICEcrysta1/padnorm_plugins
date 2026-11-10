@@ -1,0 +1,24 @@
+fields:
+  - id: enabled
+    name: 启用处理
+    description: 关闭后不提交插件贡献。
+    type: toggle
+    value: true
+  - id: use_activation_button
+    name: 按住按钮启用
+    description: 开启后，仅按住下面选择的手柄按钮时提交贡献。
+    type: toggle
+    value: false
+  - id: trigger_strength
+    name: 扳机输出强度
+    type: slider
+    min: 0
+    max: 100
+    step: 1
+    unit: "%"
+    value: 100
+  - id: activation_button
+    name: 启用按钮
+    type: button
+    value:
+      button: south
