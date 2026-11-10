@@ -33,10 +33,13 @@ return {
         end
         if config.use_activation_button then
             local control = config.activation_button
+            if type(control) ~= "table" then
+                return output
+            end
             local state
-            if control and control.button then
+            if control.button then
                 state = input.raw.buttons[control.button]
-            elseif control and control.trigger then
+            elseif control.trigger then
                 state = input.raw.triggers[control.trigger]
             end
             if not state or not state.pressed then
