@@ -1,6 +1,28 @@
-# 一阶 RC 低通时间常数，单位毫秒；越大越平滑，延迟也越明显。
-rc_ms: 20
-# 抖动向量的固定长度，占中心到满量程距离的百分比。
-jitter_percent: 3
-# 随机方向更新及无实体报告时主动重算的间隔，单位毫秒。
-update_interval_ms: 10
+fields:
+  - id: rc_ms
+    name: RC 时间常数
+    description: 一阶 RC 低通时间常数；越大越平滑，延迟也越明显。
+    type: slider
+    min: 1
+    max: 1000
+    step: 1
+    unit: ms
+    value: 20
+  - id: jitter_percent
+    name: 抖动幅度
+    description: 抖动向量的固定长度，占中心到满量程距离的百分比。
+    type: slider
+    min: 0
+    max: 100
+    step: 0.1
+    unit: "%"
+    value: 3
+  - id: update_interval_ms
+    name: 更新间隔
+    description: 随机方向更新及无实体报告时主动重算的间隔。
+    type: slider
+    min: 1
+    max: 1000
+    step: 1
+    unit: ms
+    value: 10

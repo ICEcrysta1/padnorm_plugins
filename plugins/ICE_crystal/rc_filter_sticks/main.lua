@@ -3,38 +3,14 @@ local states = {}
 local last_ms
 local next_jitter_ms
 
-local function load_config(directory)
-    local file = assert(io.open(directory .. "/config.yaml", "r"))
-    local source = file:read("*a")
-    file:close()
-    local values = {}
-    local keys = { rc_ms = true, jitter_percent = true, update_interval_ms = true }
-    -- 本插件的 YAML 只使用平铺数值项和整行或行尾注释，不接受其它结构。
-    for line in source:gmatch("[^\r\n]+") do
-        line = line:gsub("#.*$", ""):match("^%s*(.-)%s*$")
-        if line ~= "" then
-            local key, text = line:match("^([a-z_]+):%s*([%d%.]+)$")
-            local value = tonumber(text)
-            assert(key and keys[key] and value and value < math.huge and not values[key],
-                "config.yaml 包含无效或重复的数值项：" .. line)
-            values[key] = value
-        end
-    end
-    assert(values.rc_ms and values.rc_ms > 0, "rc_ms 必须大于 0")
-    assert(values.jitter_percent and values.jitter_percent <= 100,
-        "jitter_percent 必须在 0 到 100 之间")
-    assert(values.update_interval_ms and values.update_interval_ms >= 1
-        and values.update_interval_ms % 1 == 0, "update_interval_ms 必须为正整数")
-    return values
-end
-
 local function new_state(input)
     return { x = input.position[1], y = input.position[2] }
 end
 
 return {
     init = function(manifest, host)
-        config = load_config(host.directory)
+        -- 宿主将声明式配置中的当前值按字段 ID 交给插件。
+        config = host.config
         -- 每个设备会话有独立 VM；复位时继续随机序列，避免反复播放同一段抖动。
         math.randomseed(os.time() + math.floor(os.clock() * 1000000))
     end,

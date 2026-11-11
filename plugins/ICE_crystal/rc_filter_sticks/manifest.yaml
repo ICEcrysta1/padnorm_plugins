@@ -6,6 +6,7 @@ description: 对左右摇杆进行一阶 RC 低通平滑，并叠加零均值、
 files:
   - main.lua
   - config.yaml
+config: config.yaml
 sticks:
   - id: left
     name: RC左摇杆
