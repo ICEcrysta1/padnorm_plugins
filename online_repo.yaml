@@ -1,5 +1,8 @@
 - id: rc_filter_sticks
   guid: 37a552a6-84ce-497d-9a24-23778e403766
+  version: 0.1.0
+  author: ICE_crystal
+  default_language: en
   name:
     de: RC-gefilterte Sticks
     en: RC Filtered Sticks
@@ -8,8 +11,6 @@
     ko: RC 필터 스틱
     zh-hans: RC滤波摇杆
     zh-hant: RC濾波搖桿
-  version: 0.1.0
-  author: ICE_crystal
   description:
     de: Glättet beide Sticks mit einem RC-Tiefpass erster Ordnung und fügt Jitter mit zufälliger Richtung, Mittelwert null und fester Amplitude hinzu.
     en: Smooths both sticks with a first-order RC low-pass filter and adds random-direction jitter with zero mean and fixed amplitude.
@@ -19,9 +20,11 @@
     zh-hans: 对左右摇杆进行一阶 RC 低通平滑，并叠加零均值、固定幅度的随机方向抖动。
     zh-hant: 對左右搖桿進行一階 RC 低通平滑，並疊加平均值為零、幅度固定、方向隨機的抖動。
   download_url: https://raw.githubusercontent.com/ICEcrysta1/padnorm_plugins/refs/heads/main/plugins/ICE_crystal/rc_filter_sticks/manifest.yaml
-  default_language: en
 - id: passthrough_example
   guid: 019b6bae-8fc4-49c9-aef2-2e392d022e7e
+  version: 0.1.0
+  author: ICE_crystal
+  default_language: en
   name:
     de: Passthrough-Beispiel
     en: Passthrough Example
@@ -30,8 +33,6 @@
     ko: 패스스루 예제
     zh-hans: 直通示例
     zh-hant: 直通範例
-  version: 0.1.0
-  author: ICE_crystal
   description:
     de: Leitet abstrakte Eingaben unverändert weiter. Passen Sie den Quellcode an, um eigene Verarbeitungslogik hinzuzufügen.
     en: Forwards abstract input unchanged. Modify the source code to add processing logic.
@@ -41,4 +42,3 @@
     zh-hans: 原样传递抽象输入，可修改源码添加处理逻辑。
     zh-hant: 原樣傳遞抽象化輸入，可修改原始碼加入處理邏輯。
   download_url: https://raw.githubusercontent.com/ICEcrysta1/padnorm_plugins/refs/heads/main/plugins/ICE_crystal/passthrough_example/manifest.yaml
-  default_language: en
