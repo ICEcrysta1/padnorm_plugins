@@ -1,14 +1,43 @@
 id: rc_filter_sticks
 guid: 37a552a6-84ce-497d-9a24-23778e403766
-name: RC滤波摇杆
 version: "0.1.0"
-description: 对左右摇杆进行一阶 RC 低通平滑，并叠加零均值、固定幅度的随机方向抖动。
 files:
   - main.lua
   - config.yaml
 config: config.yaml
+default_language: en
+name:
+  de: RC-gefilterte Sticks
+  en: RC Filtered Sticks
+  fr: Sticks avec filtre RC
+  ja: RCフィルター付きスティック
+  ko: RC 필터 스틱
+  zh-hans: RC滤波摇杆
+  zh-hant: RC濾波搖桿
+description:
+  de: Glättet beide Sticks mit einem RC-Tiefpass erster Ordnung und fügt Jitter mit zufälliger Richtung, Mittelwert null und fester Amplitude hinzu.
+  en: Smooths both sticks with a first-order RC low-pass filter and adds random-direction jitter with zero mean and fixed amplitude.
+  fr: Lisse les deux sticks avec un filtre passe-bas RC du premier ordre et ajoute un tremblement de direction aléatoire, de moyenne nulle et d’amplitude fixe.
+  ja: 左右のスティックを一次RCローパスフィルターで平滑化し、平均ゼロ・振幅一定で方向がランダムな揺らぎを加えます。
+  ko: 좌우 스틱에 1차 RC 저역 통과 필터를 적용해 움직임을 부드럽게 하고, 평균이 0이고 진폭이 일정하며 방향이 무작위인 떨림을 더합니다.
+  zh-hans: 对左右摇杆进行一阶 RC 低通平滑，并叠加零均值、固定幅度的随机方向抖动。
+  zh-hant: 對左右搖桿進行一階 RC 低通平滑，並疊加平均值為零、幅度固定、方向隨機的抖動。
 sticks:
   - id: left
-    name: RC左摇杆
+    name:
+      de: Linker RC-Stick
+      en: RC Left Stick
+      fr: Stick gauche RC
+      ja: RC左スティック
+      ko: RC 왼쪽 스틱
+      zh-hans: RC左摇杆
+      zh-hant: RC左搖桿
   - id: right
-    name: RC右摇杆
+    name:
+      de: Rechter RC-Stick
+      en: RC Right Stick
+      fr: Stick droit RC
+      ja: RC右スティック
+      ko: RC 오른쪽 스틱
+      zh-hans: RC右摇杆
+      zh-hant: RC右搖桿

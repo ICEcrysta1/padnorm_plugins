@@ -1,24 +1,66 @@
 fields:
   - id: enabled
-    name: 启用处理
-    description: 关闭后不提交插件贡献。
     type: toggle
     value: true
+    name:
+      de: Verarbeitung aktivieren
+      en: Enable processing
+      fr: Activer le traitement
+      ja: 処理を有効化
+      ko: 처리 활성화
+      zh-hans: 启用处理
+      zh-hant: 啟用處理
+    description:
+      de: Wenn deaktiviert, gibt das Plugin nichts aus.
+      en: When disabled, this plugin produces no output.
+      fr: Si cette option est désactivée, le plugin ne produit aucune sortie.
+      ja: 無効にすると、プラグインは出力しません。
+      ko: 끄면 플러그인이 출력을 보내지 않습니다.
+      zh-hans: 关闭后，插件不再提交输出。
+      zh-hant: 關閉後，外掛不再提交輸出。
   - id: use_activation_button
-    name: 按住按钮启用
-    description: 开启后，仅按住下面选择的手柄按钮时提交贡献。
     type: toggle
     value: false
+    name:
+      de: Zum Aktivieren Taste gedrückt halten
+      en: Hold button to enable
+      fr: Maintenir le bouton pour activer
+      ja: ボタンを押している間だけ有効化
+      ko: 버튼을 누르는 동안 활성화
+      zh-hans: 按住按钮启用
+      zh-hant: 按住按鈕啟用
+    description:
+      de: Wenn aktiviert, gibt das Plugin nur etwas aus, solange die unten gewählte Controller-Taste gedrückt gehalten wird.
+      en: When enabled, this plugin produces output only while the controller button selected below is held down.
+      fr: Si cette option est activée, le plugin ne produit de sortie que lorsque le bouton de la manette choisi ci-dessous est maintenu enfoncé.
+      ja: 有効にすると、下で選択したコントローラーのボタンを押している間だけ、プラグインが出力します。
+      ko: 켜면 아래에서 선택한 컨트롤러 버튼을 누르고 있는 동안에만 플러그인이 출력을 보냅니다.
+      zh-hans: 开启后，插件仅在按住下方所选手柄按钮时提交输出。
+      zh-hant: 開啟後，外掛僅在按住下方所選控制器按鈕時提交輸出。
   - id: trigger_strength
-    name: 扳机输出强度
     type: slider
     min: 0
     max: 100
     step: 1
     unit: "%"
     value: 100
+    name:
+      de: Trigger-Ausgabestärke
+      en: Trigger output strength
+      fr: Niveau de sortie de la gâchette
+      ja: トリガーの出力強度
+      ko: 트리거 출력 강도
+      zh-hans: 扳机输出强度
+      zh-hant: 扳機輸出強度
   - id: activation_button
-    name: 启用按钮
     type: button
     value:
       button: south
+    name:
+      de: Aktivierungstaste
+      en: Activation button
+      fr: Bouton d’activation
+      ja: 有効化ボタン
+      ko: 활성화 버튼
+      zh-hans: 启用按钮
+      zh-hant: 啟用按鈕

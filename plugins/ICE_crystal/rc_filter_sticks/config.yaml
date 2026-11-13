@@ -1,28 +1,70 @@
 fields:
   - id: rc_ms
-    name: RC 时间常数
-    description: 一阶 RC 低通时间常数；越大越平滑，延迟也越明显。
     type: slider
     min: 1
     max: 1000
     step: 1
     unit: ms
     value: 20
+    name:
+      de: RC-Zeitkonstante
+      en: RC time constant
+      fr: Constante de temps RC
+      ja: RC時定数
+      ko: RC 시정수
+      zh-hans: RC 时间常数
+      zh-hant: RC 時間常數
+    description:
+      de: Zeitkonstante des RC-Tiefpasses erster Ordnung. Höhere Werte glätten stärker und erhöhen die Verzögerung.
+      en: Time constant of the first-order RC low-pass filter. Higher values give smoother motion but more delay.
+      fr: Constante de temps du filtre passe-bas RC du premier ordre. Une valeur plus élevée lisse davantage le mouvement, mais augmente le retard.
+      ja: 一次RCローパスフィルターの時定数です。値を大きくすると動きが滑らかになりますが、遅延も大きくなります。
+      ko: 1차 RC 저역 통과 필터의 시정수입니다. 값이 클수록 움직임이 부드러워지지만 지연도 커집니다.
+      zh-hans: 一阶 RC 低通时间常数；越大越平滑，延迟也越明显。
+      zh-hant: 一階 RC 低通時間常數；越大越平滑，延遲也越明顯。
   - id: jitter_percent
-    name: 抖动幅度
-    description: 抖动向量的固定长度，占中心到满量程距离的百分比。
     type: slider
     min: 0
     max: 100
     step: 0.1
     unit: "%"
     value: 3
+    name:
+      de: Jitter-Amplitude
+      en: Jitter amplitude
+      fr: Amplitude du tremblement
+      ja: 揺らぎの振幅
+      ko: 떨림 진폭
+      zh-hans: 抖动幅度
+      zh-hant: 抖動幅度
+    description:
+      de: Feste Länge des Jitter-Vektors als Prozentsatz des Weges von der Mitte bis zum Vollausschlag.
+      en: Fixed length of the jitter vector, as a percentage of the distance from the center to full deflection.
+      fr: Longueur fixe du vecteur de tremblement, en pourcentage de la distance entre le centre et la déviation maximale.
+      ja: 揺らぎベクトルの一定の長さを、中心から最大入力位置までの距離に対する割合で指定します。
+      ko: 떨림 벡터의 고정 길이를 스틱 중심에서 최대 입력 위치까지의 거리 대비 백분율로 지정합니다.
+      zh-hans: 抖动向量的固定长度，占中心到满量程距离的百分比。
+      zh-hant: 抖動向量的固定長度，佔中心到滿量程距離的百分比。
   - id: update_interval_ms
-    name: 更新间隔
-    description: 随机方向更新及无实体报告时主动重算的间隔。
     type: slider
     min: 1
     max: 1000
     step: 1
     unit: ms
     value: 10
+    name:
+      de: Aktualisierungsintervall
+      en: Update interval
+      fr: Intervalle de mise à jour
+      ja: 更新間隔
+      ko: 업데이트 간격
+      zh-hans: 更新间隔
+      zh-hant: 更新間隔
+    description:
+      de: Intervall für neue Zufallsrichtungen und für die Neuberechnung, wenn keine Eingabeberichte vom physischen Controller eintreffen.
+      en: Interval for updating the random direction and requesting recalculation when no reports arrive from the physical controller.
+      fr: Intervalle entre les changements de direction aléatoire et entre les demandes de recalcul en l’absence de rapports de la manette physique.
+      ja: ランダムな方向を更新する間隔です。実機からの入力レポートがないときも、この間隔で再計算を要求します。
+      ko: 무작위 방향을 갱신하는 간격입니다. 실제 컨트롤러의 입력 보고서가 없을 때도 이 간격으로 재계산을 요청합니다.
+      zh-hans: 随机方向更新及无实体报告时主动重算的间隔。
+      zh-hant: 隨機方向更新及無實體報告時主動重新計算的間隔。

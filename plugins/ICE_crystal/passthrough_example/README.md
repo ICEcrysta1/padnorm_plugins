@@ -2,10 +2,10 @@
 
 这是随主仓库提供的普通 Lua 插件目录，不是 Git 子模块。它分别注册“直通按钮”“直通摇杆”和“直通扳机”，接收主程序送来的抽象输入，默认保持直通，没有额外动作、后台任务或依赖。
 
-- `manifest.yaml`：声明固定 GUID、插件名称、展示版本与简介、logo、注册按钮及其图标；GUID 沿用在线仓库官方插件示例的 `019b6bae-8fc4-49c9-aef2-2e392d022e7e`。
+- `manifest.yaml`：声明固定 GUID、七种语言的名称与简介、默认语言 `en`、展示版本、logo、注册控件及其图标；GUID 沿用在线仓库官方插件示例的 `019b6bae-8fc4-49c9-aef2-2e392d022e7e`。
 - `icon.png`：由主程序现有 `plugin.svg` 导出的 PNG，供示例 logo 和直通按钮共同使用；可自行替换图片及声明路径。
 - `main.lua`：插件入口；修改 `process_button`、`process_stick` 或 `process_trigger` 即可加入自己的处理逻辑。
-- `config.yaml`：由 manifest 的 `config` 指定，声明两个开关、百分比滑块和手柄按钮选择；控件顺序、文字、范围、步长及当前值由插件定义。
+- `config.yaml`：由 manifest 的 `config` 指定，声明两个开关、百分比滑块和手柄按钮选择，名称与说明提供七种语言，默认语言沿用 manifest；控件顺序、文字、范围、步长及当前值由插件定义。
 
 将整个 `passthrough_example` 文件夹复制到 **EXE 同级的 `plugins/offline/`** 下，再启动或重启程序，无须重新编译；也可以使用“从文件安装”选择本目录的 `manifest.yaml`。构建不会自动复制此示例。例如本仓库的 Release 目录为 `target/release/plugins/offline/passthrough_example/`。
 
