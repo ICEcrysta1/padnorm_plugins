@@ -1,6 +1,6 @@
-id: github_theme
+id: git,ub_theme
 guid: 21bb14f0-e1fd-4ad6-b150-142cc0591ed0
-version: 0.1.0
+version: 0.1.1
 author: ICE_crystal
 files:
 - icon.png
@@ -26,3 +26,18 @@ themes:
 - id: github_dark_dimmed
   name:
     en: GitHub Dark Dimmed
+- id: github_light_default
+  name:
+    en: GitHub Light Default
+- id: github_light_high_contrast
+  name:
+    en: GitHub Light High Contrast
+- id: github_light_colorblind
+  name:
+    en: GitHub Light Colorblind
+- id: github_light
+  name:
+    en: GitHub Light
+- id: github_dark
+  name:
+    en: GitHub Dark

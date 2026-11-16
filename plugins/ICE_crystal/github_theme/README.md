@@ -1,13 +1,20 @@
-# GitHub 深色主题集
+# GitHub 主题集
 
 - GitHub Dark Default
 - GitHub Dark High Contrast
 - GitHub Dark Colorblind
 - GitHub Dark Dimmed
+- GitHub Light Default
+- GitHub Light High Contrast
+- GitHub Light Colorblind
+- GitHub Light（经典）
+- GitHub Dark（经典）
 
 在 PadNorm 中从文件安装本目录的 `manifest.yaml`，然后在设置页“其他”的主题配色中选择并保存。需要支持 `themes` 能力和 Lua `theme(id, host)` 回调的宿主版本。
 
-配色来源为 primer/github-vscode-theme 的 `cd78e5e4e7bcf132a6f428ae0f32264bb1b729cf` 提交及其固定依赖 `@primer/primitives` 7.10.0。Default 同步使用上游 `src/colors.js` 对前景、次要文字和强调色的覆盖，Colorblind 沿用蓝色成功状态和橙色危险状态。
+配色来源为 primer/github-vscode-theme 的 `cd78e5e4e7bcf132a6f428ae0f32264bb1b729cf` 提交及其固定依赖 `@primer/primitives` 7.10.0；经典主题使用同提交 `src/classic/colors.json`（基于 `@primer/primitives` 2.0.1）。Default 与 Light Default 同步使用上游 `src/colors.js` 对前景、次要文字和强调色的覆盖，Colorblind 沿用蓝色成功状态和橙色危险状态。
+
+## 现代主题字段映射
 
 | 宿主字段 | 上游字段 |
 | --- | --- |
@@ -21,22 +28,53 @@
 | `control_hover` | `btn.hoverBg` |
 | `control_outline` | `border.muted` |
 | `text_primary` | `fg.default` |
-| `text_bright` | `scale.gray.0` |
+| `text_bright` | `scale.gray.0`，浅色取 `scale.gray.9` |
 | `accent_background` | `accent.subtle`，叠加于 `canvas.default` |
 | `accent_emphasis` | `accent.emphasis` |
 | `navigation_background` | `accent.subtle`，叠加于 `canvas.inset` |
 | `blue` | `accent.fg` |
-| `blue_text` | `scale.blue.2` |
-| `curve` | `scale.blue.3` |
+| `blue_text` | `scale.blue.2`，浅色取 `scale.blue.7` |
+| `curve` | `scale.blue.3`，浅色取 `scale.blue.6` |
 | `axis` | `fg.subtle` |
 | `success` | `btn.primary.bg` |
 | `success_outline` | `success.fg` |
 | `success_foreground` | `btn.primary.text` |
-| `success_text` | `scale.green.1` |
+| `success_text` | `scale.green.1`，浅色取 `scale.green.8` |
 | `warning` | `attention.fg` |
 | `danger` | `danger.fg` |
 
-上游颜色映射到宿主现有的 24 个 RGB 字段。透明背景合成后四舍五入到 8 位通道。需要宿主支持 `success_foreground` 字段；High Contrast 的成功按钮使用原版深色文字。
+上游颜色映射到宿主现有的 24 个 RGB 字段。透明背景合成后四舍五入到 8 位通道。浅色主题对最亮/最暗的色阶取反向索引，保证与深色主题等效的对比度。需要宿主支持 `success_foreground` 字段；深色 High Contrast 的成功按钮使用原版深色文字。
+
+## 经典主题字段映射
+
+| 宿主字段 | `src/classic/theme.js` 字段 |
+| --- | --- |
+| `background` | `editor.background` |
+| `panel` | `sideBar.background` |
+| `outline` | `sideBar.border` |
+| `drag_handle` | `sideBar.border` |
+| `text` | `descriptionForeground` |
+| `text_tertiary` | 调色板 `gray[4]` |
+| `control` | `button.secondaryBackground` |
+| `control_hover` | `button.secondaryHoverBackground` |
+| `control_outline` | `checkbox.border` |
+| `text_primary` | `editor.foreground` |
+| `text_bright` | 调色板 `black`，深色为 `white` |
+| `accent_background` | `list.hoverBackground` |
+| `accent_emphasis` | `activityBarBadge.background` |
+| `navigation_background` | `list.activeSelectionBackground` |
+| `blue` | `textLink.foreground` |
+| `blue_text` | `terminal.ansiBrightBlue` |
+| `curve` | `editorGutter.modifiedBackground` |
+| `axis` | 调色板 `gray[4]` |
+| `success` | `button.background` |
+| `success_outline` | `gitDecoration.addedResourceForeground` |
+| `success_foreground` | `button.foreground` |
+| `success_text` | 调色板 `green[6]`，深色为 `green[4]` |
+| `warning` | `notificationsWarningIcon.foreground` |
+| `danger` | `errorForeground` |
+
+经典主题使用 10 级色阶，深色变体由同一色阶反转生成，`white` 与 `black` 在深色变体中互换，因此边框和前景仍保持暗色。
 
 来源与 MIT 许可证原文随插件分发。
 
