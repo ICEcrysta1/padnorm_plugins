@@ -28,6 +28,8 @@
 | `control_hover` | `btn.hoverBg` |
 | `control_outline` | `border.muted` |
 | `text_primary` | `fg.default` |
+| `mapping_icon_foreground` | `fg.default`，仅替换按钮提示 SVG 的中性色 |
+| `controller_foreground` | 与 `text_bright` 相同的色阶值，独立控制主手柄底图 |
 | `text_bright` | `scale.gray.0`，浅色取 `scale.gray.9` |
 | `accent_background` | `accent.subtle`，叠加于 `canvas.default` |
 | `accent_emphasis` | `accent.emphasis` |
@@ -43,7 +45,7 @@
 | `warning` | `attention.fg` |
 | `danger` | `danger.fg` |
 
-上游颜色映射到宿主现有的 24 个 RGB 字段。透明背景合成后四舍五入到 8 位通道。浅色主题对最亮/最暗的色阶取反向索引，保证与深色主题等效的对比度。需要宿主支持 `success_foreground` 字段；深色 High Contrast 的成功按钮使用原版深色文字。
+上游颜色映射到宿主现有的 26 个 RGB 字段。透明背景合成后四舍五入到 8 位通道。浅色主题的灰、蓝、绿色阶使用反向索引，取值均来自对应的上游调色板。需要宿主支持 `success_foreground`、`mapping_icon_foreground` 和 `controller_foreground` 字段；深色 High Contrast 的成功按钮使用原版深色文字。
 
 ## 经典主题字段映射
 
@@ -59,7 +61,9 @@
 | `control_hover` | `button.secondaryHoverBackground` |
 | `control_outline` | `checkbox.border` |
 | `text_primary` | `editor.foreground` |
-| `text_bright` | 调色板 `black`，深色为 `white` |
+| `mapping_icon_foreground` | `editor.foreground`，仅替换按钮提示 SVG 的中性色 |
+| `controller_foreground` | 与 `text_bright` 相同的色阶值，独立控制主手柄底图 |
+| `text_bright` | 原始调色板 `black`；深色取原始 `gray[0]`（反转后的 `gray[9]`） |
 | `accent_background` | `list.hoverBackground` |
 | `accent_emphasis` | `activityBarBadge.background` |
 | `navigation_background` | `list.activeSelectionBackground` |
@@ -74,7 +78,7 @@
 | `warning` | `notificationsWarningIcon.foreground` |
 | `danger` | `errorForeground` |
 
-经典主题使用 10 级色阶，深色变体由同一色阶反转生成，`white` 与 `black` 在深色变体中互换，因此边框和前景仍保持暗色。
+经典主题使用 10 级色阶，深色变体反转色阶数组并互换 `white` 与 `black`。上游经典深色主题中引用 `white` 的边框因此取原始 `black`（`#1b1f23`）；本插件的标题与主手柄底图取原始 `gray[0]`（`#fafbfc`，反转后的 `gray[9]`），正文和按钮提示图标使用上游 `editor.foreground`。
 
 来源与 MIT 许可证原文随插件分发。
 
