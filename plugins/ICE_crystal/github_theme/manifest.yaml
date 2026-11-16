@@ -1,0 +1,28 @@
+id: github_theme
+guid: 21bb14f0-e1fd-4ad6-b150-142cc0591ed0
+version: 0.1.0
+author: ICE_crystal
+files:
+- icon.png
+- main.lua
+- README.md
+- LICENSES.txt
+logo: icon.png
+default_language: en
+name:
+  en: GitHub Theme
+description:
+  en: GitHub theme for PadNorm
+themes:
+- id: github_dark_default
+  name:
+    en: GitHub Dark Default
+- id: github_dark_high_contrast
+  name:
+    en: GitHub Dark High Contrast
+- id: github_dark_colorblind
+  name:
+    en: GitHub Dark Colorblind
+- id: github_dark_dimmed
+  name:
+    en: GitHub Dark Dimmed
