@@ -27,6 +27,7 @@
 | `control` | `btn.bg` |
 | `control_hover` | `btn.hoverBg` |
 | `control_outline` | `border.muted` |
+| `mapping_line` | 优先沿用 `control_outline`；普通深色取 `scale.gray.5`，普通浅色取 `scale.gray.4`，高对比主题保持同色 |
 | `text_primary` | `fg.default` |
 | `mapping_icon_foreground` | `fg.default`，仅替换按钮提示 SVG 的中性色 |
 | `controller_foreground` | 与 `text_bright` 相同的色阶值，独立控制主手柄底图 |
@@ -45,7 +46,7 @@
 | `warning` | `attention.fg` |
 | `danger` | `danger.fg` |
 
-上游颜色映射到宿主现有的 26 个 RGB 字段。透明背景合成后四舍五入到 8 位通道。浅色主题的灰、蓝、绿色阶使用反向索引，取值均来自对应的上游调色板。需要宿主支持 `success_foreground`、`mapping_icon_foreground` 和 `controller_foreground` 字段；深色 High Contrast 的成功按钮使用原版深色文字。
+上游颜色映射到宿主现有的 30 个 RGB 字段。透明背景合成后四舍五入到 8 位通道。浅色主题的灰、蓝、绿色阶使用反向索引，取值均来自对应的上游调色板。需要宿主支持 `success_foreground`、`mapping_icon_foreground`、`controller_foreground`、`controller_glow`、`controller_inner_glow`、`controller_flow` 和 `mapping_line` 字段；深色 High Contrast 的成功按钮使用原版深色文字。
 
 ## 经典主题字段映射
 
@@ -60,6 +61,7 @@
 | `control` | `button.secondaryBackground` |
 | `control_hover` | `button.secondaryHoverBackground` |
 | `control_outline` | `checkbox.border` |
+| `mapping_line` | 经典深色取原始 `gray[6]`（`#586069`），经典浅色取原始 `gray[4]`（`#959da5`），提高对背景的辨识度 |
 | `text_primary` | `editor.foreground` |
 | `mapping_icon_foreground` | `editor.foreground`，仅替换按钮提示 SVG 的中性色 |
 | `controller_foreground` | 与 `text_bright` 相同的色阶值，独立控制主手柄底图 |
@@ -79,6 +81,12 @@
 | `danger` | `errorForeground` |
 
 经典主题使用 10 级色阶，深色变体反转色阶数组并互换 `white` 与 `black`。上游经典深色主题中引用 `white` 的边框因此取原始 `black`（`#1b1f23`）；本插件的标题与主手柄底图取原始 `gray[0]`（`#fafbfc`，反转后的 `gray[9]`），正文和按钮提示图标使用上游 `editor.foreground`。
+
+## 连接线与光晕
+
+`mapping_line` 仅控制未选中的映射连接线，选中线仍使用 `blue`。连接线优先与控件描边同色；普通主题的原描边对背景对比不足，因此改取同主题上游灰阶，不改变控件边框。两套 High Contrast 主题沿用各自的 `control_outline`。调整后的普通主题连接线对 `background` 和 `panel` 的计算对比度均不低于约 2.2:1，用于保持可辨识且弱于选中线的视觉层级，并非文字可访问性标准。
+
+`controller_glow` 和 `controller_inner_glow` 取 `accent_emphasis`，分别控制外发光与内发光；`controller_flow` 取上游函数名紫色：现代浅色 `purple[5]`、深色 `purple[2]`，经典主题使用 `entity` 配色。
 
 来源与 MIT 许可证原文随插件分发。
 
