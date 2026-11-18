@@ -1,0 +1,42 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="256" height="256" viewBox="0 0 256 256" role="img" aria-labelledby="title desc">
+  <title id="title">PadNorm Passthrough Example</title>
+  <desc id="desc">Three uninterrupted signal paths travel from left to right through a rounded module.</desc>
+  <defs>
+    <linearGradient id="tile" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#203957"/>
+      <stop offset="1" stop-color="#0D1728"/>
+    </linearGradient>
+    <linearGradient id="outline" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#66BAFF"/>
+      <stop offset="1" stop-color="#23518C"/>
+    </linearGradient>
+    <radialGradient id="glow" cx="0.5" cy="0.45" r="0.68">
+      <stop offset="0" stop-color="#2B7BCB" stop-opacity=".25"/>
+      <stop offset="1" stop-color="#2B7BCB" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+
+  <rect x="15" y="15" width="226" height="226" rx="52" fill="url(#tile)"/>
+  <rect x="15.75" y="15.75" width="224.5" height="224.5" rx="51.25" fill="none" stroke="url(#outline)" stroke-width="2.5"/>
+  <rect x="28" y="28" width="200" height="200" rx="42" fill="url(#glow)"/>
+
+  <!-- One channel, one unmodified output: all three signals travel straight through. -->
+  <rect x="97" y="60" width="62" height="136" rx="18" fill="#274363" fill-opacity=".66" stroke="#598DBC" stroke-opacity=".65" stroke-width="2"/>
+  <path d="M128 71 V185" stroke="#9BDCFB" stroke-opacity=".13" stroke-width="2" stroke-dasharray="3 8"/>
+
+  <g fill="none" stroke="#5DBEFF" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M63 87 H185" stroke-width="11"/>
+    <path d="M56 128 H191" stroke-width="14"/>
+    <path d="M63 169 H185" stroke-width="11"/>
+  </g>
+  <g fill="none" stroke="#B7EEFF" stroke-linejoin="round" stroke-linecap="round">
+    <path d="M174 75 L190 87 L174 99" stroke-width="10"/>
+    <path d="M178 114 L195 128 L178 142" stroke-width="12"/>
+    <path d="M174 157 L190 169 L174 181" stroke-width="10"/>
+  </g>
+  <g fill="#80D4FF">
+    <circle cx="61" cy="87" r="6"/>
+    <circle cx="54" cy="128" r="7"/>
+    <circle cx="61" cy="169" r="6"/>
+  </g>
+</svg>
