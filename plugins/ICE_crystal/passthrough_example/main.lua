@@ -12,13 +12,13 @@ end
 
 local config
 
-local function process_trigger(state)
-    return { pressed = state.pressed, value = state.value * config.trigger_strength / 100 }
+local function process_trigger(state, strength)
+    return { pressed = state.pressed, value = state.value * strength / 100 }
 end
 
 return {
     init = function(manifest, host)
-        -- 宿主将声明式配置中的当前值按字段 ID 交给插件。
+        -- 全局配置在初始化时按字段 ID 传入。
         config = host.config
     end,
 
@@ -62,12 +62,14 @@ return {
             }
         end
         for id, state in pairs(input.controls.triggers) do
-            local processed = process_trigger(state)
-            output.triggers[id] = {
-                pressed = processed.pressed,
-                value = state.value,
-                delta = processed.value - state.value,
-            }
+            if state.config then
+                local processed = process_trigger(state, state.config.trigger_strength)
+                output.triggers[id] = {
+                    pressed = processed.pressed,
+                    value = state.value,
+                    delta = processed.value - state.value,
+                }
+            end
         end
         return output
     end,
