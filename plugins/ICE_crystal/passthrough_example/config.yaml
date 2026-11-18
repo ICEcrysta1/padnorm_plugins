@@ -39,7 +39,7 @@ fields:
       zh-hant: 開啟後，外掛僅在按住下方所選控制器按鈕時提交輸出。
   - id: trigger_strength
     type: slider
-    global: false
+    scope: binding
     min: 0
     max: 100
     step: 1
