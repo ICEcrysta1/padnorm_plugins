@@ -1,0 +1,43 @@
+fields:
+  - id: min_amplitude
+    type: slider
+    min: 1
+    max: 100
+    step: 1
+    unit: "%"
+    value: 5
+    scope: binding
+    name:
+      zh-hans: 最低脉冲幅度
+      zh-hant: 最低脈衝幅度
+    description:
+      zh-hans: 输入低于此值时按该幅度脉冲输出；输入高于它时幅度自动等于输入并直接直通，不再需要补偿。该幅度必须高于下游死区。
+      zh-hant: 輸入低於此值時按該幅度脈衝輸出；輸入高於它時幅度自動等於輸入並直接直通，不再需要補償。該幅度必須高於下游死區。
+  - id: pulse_width_ms
+    type: slider
+    min: 1
+    max: 50
+    step: 1
+    unit: ms
+    value: 4
+    scope: binding
+    name:
+      zh-hans: 脉冲宽度
+      zh-hant: 脈衝寬度
+    description:
+      zh-hans: 每次脉冲的持续时间。占空比由强度除以实际幅度得到，周期再由此推出；宽度越大越容易被下游采样，但低强度时等待越久。
+      zh-hant: 每次脈衝的持續時間。占空比由強度除以實際幅度得到，週期再由此推出；寬度越大越容易被下游取樣，但低強度時等待越久。
+  - id: deadzone
+    type: slider
+    min: 0
+    max: 50
+    step: 1
+    unit: "%"
+    value: 0
+    scope: binding
+    name:
+      zh-hans: 输入死区阈值
+      zh-hant: 輸入死區閾值
+    description:
+      zh-hans: 输入强度低于此值时完全不输出，用于抑制摇杆漂移；下游游戏或宿主的死区不在此处处理。
+      zh-hant: 輸入強度低於此值時完全不輸出，用於抑制搖桿漂移；下游遊戲或宿主的死區不在此處處理。

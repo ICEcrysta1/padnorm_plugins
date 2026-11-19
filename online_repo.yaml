@@ -30,3 +30,15 @@
     zh-hans: 原样传递抽象输入，可修改源码添加处理逻辑。
     zh-hant: 原樣傳遞抽象化輸入，可修改原始碼加入處理邏輯。
   download_url: https://raw.githubusercontent.com/ICEcrysta1/padnorm_plugins/refs/heads/main/plugins/ICE_crystal/passthrough_example/manifest.yaml
+- id: time_deadzone
+  guid: ecabea6e-4e13-4dd2-bc0d-9a5afc2ced14
+  version: 0.1.0
+  author: ICE_crystal
+  default_language: zh-hans
+  name:
+    zh-hans: 基于时间的反死区
+    zh-hant: 基於時間的反死區
+  description:
+    zh-hans: 把摇杆输入强度转换为脉冲的时间占比，绕过下游死区，长期平均强度仍与原输入一致。
+    zh-hant: 把搖桿輸入強度轉換為脈衝的時間占比，繞過下游死區，長期平均強度仍與原輸入一致。
+  download_url: https://raw.githubusercontent.com/ICEcrysta1/padnorm_plugins/refs/heads/main/plugins/ICE_crystal/time_deadzone/manifest.yaml
