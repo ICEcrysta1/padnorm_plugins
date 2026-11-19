@@ -1,6 +1,6 @@
 id: time_deadzone
 guid: ecabea6e-4e13-4dd2-bc0d-9a5afc2ced14
-version: "0.2.0"
+version: "0.3.0"
 files:
   - main.lua
   - README.md

@@ -1,5 +1,5 @@
--- 基于时间的反死区：输入低于最低幅度时按该幅度脉冲输出，高于时直接直通。
--- 占空比 = 强度 / 实际幅度，周期 = 脉宽 / 占空比；下游死区之前的平均强度与原输入一致。
+-- 基于时间的反死区：输入低于游戏死区时按该幅度脉冲输出，高于时直接直通。
+-- 占空比 = 强度 / 游戏死区，周期 = 脉宽 / 占空比；下游死区之前的平均强度与原输入一致。
 -- 开启 rescale_model 时改为静态反死区映射，适配会重新缩放死区以上输入的下游。
 
 local stick_timers = {}
@@ -17,36 +17,37 @@ local function process_stick(state, timer, now_ms)
     local x, y = state.position[1], state.position[2]
     local length = math.sqrt(x * x + y * y)
 
-    if length <= 0 or length < binding.deadzone / 100 then
-        -- 低于阈值时归零，并让恢复输入后的第一帧立刻出脉冲
+    if length <= 0 then
+        -- 回中时归零，并让恢复输入后的第一帧立刻出脉冲
         timer.start_ms = nil
         return { position = { -x, -y } }
     end
 
-    -- 缩放型下游：静态反死区映射，抵消下游对死区以上输入的重新缩放
+    -- 游戏死区：脉冲模式下是脉冲幅度，缩放模式下是下游死区
+    local game_deadzone = math.min(math.max((binding.game_deadzone or 0) / 100, 0), 0.99)
+
+    -- 缩放型反死区：静态映射，抵消下游对死区以上输入的重新缩放
     if binding.rescale_model then
         timer.start_ms = nil
-        local downstream = math.min(math.max((binding.downstream_deadzone or 0) / 100, 0), 0.99)
-        if downstream <= 0 then
+        if game_deadzone <= 0 then
             return { position = { 0, 0 } }
         end
         -- 下游输出 = (a - 死区) / (1 - 死区)，反解 a 使下游输出等于输入强度
-        local target = math.min(downstream + length * (1 - downstream), 1)
+        local target = math.min(game_deadzone + length * (1 - game_deadzone), 1)
         local scale = target / length
         return { position = { x * scale - x, y * scale - y } }
     end
 
-    -- 最低脉冲幅度：输入越高，实际幅度自动抬到输入值；达到它就不再补偿
-    local min_amplitude = math.min(math.max(binding.min_amplitude / 100, 0), 1)
-    if min_amplitude <= 0 or length >= min_amplitude then
-        -- 离开补偿区后重新进入时同样立刻出脉冲，避免低强度下等待一个完整周期
+    -- 输入达到游戏死区后本身已能通过，不再补偿
+    if game_deadzone <= 0 or length >= game_deadzone then
+        -- 离开补偿区后重新进入时立刻出脉冲，避免低强度下等待一个完整周期
         timer.start_ms = nil
         return { position = { 0, 0 } }
     end
 
     -- 一帧之内无法再切分；脉宽至少覆盖一帧，否则低强度会被帧量化放大
     local pulse_ms = math.max(binding.pulse_width_ms, last_dt_ms)
-    local duty = length / min_amplitude
+    local duty = length / game_deadzone
     local period_ms = pulse_ms / duty
 
     if timer.start_ms == nil then
@@ -61,8 +62,8 @@ local function process_stick(state, timer, now_ms)
     end
 
     if now_ms - timer.start_ms < pulse_ms then
-        -- 沿原方向输出最低幅度；宿主按增量叠加
-        local scale = min_amplitude / length
+        -- 沿原方向输出游戏死区幅度；宿主按增量叠加
+        local scale = game_deadzone / length
         return { position = { x * scale - x, y * scale - y } }
     end
 
