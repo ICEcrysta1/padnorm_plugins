@@ -1,3 +1,13 @@
+- id: github_theme
+  guid: 21bb14f0-e1fd-4ad6-b150-142cc0591ed0
+  version: 0.1.5
+  author: ICE_crystal
+  default_language: en
+  name:
+    en: GitHub Theme
+  description:
+    en: GitHub theme for PadNorm
+  download_url: https://raw.githubusercontent.com/ICEcrysta1/padnorm_plugins/refs/heads/main/plugins/ICE_crystal/github_theme/manifest.yaml
 - id: passthrough_example
   guid: 019b6bae-8fc4-49c9-aef2-2e392d022e7e
   version: 0.1.0
@@ -20,13 +30,3 @@
     zh-hans: 原样传递抽象输入，可修改源码添加处理逻辑。
     zh-hant: 原樣傳遞抽象化輸入，可修改原始碼加入處理邏輯。
   download_url: https://raw.githubusercontent.com/ICEcrysta1/padnorm_plugins/refs/heads/main/plugins/ICE_crystal/passthrough_example/manifest.yaml
-- id: github_theme
-  guid: 21bb14f0-e1fd-4ad6-b150-142cc0591ed0
-  version: 0.1.5
-  author: ICE_crystal
-  default_language: en
-  name:
-    en: GitHub Theme
-  description:
-    en: GitHub theme for PadNorm
-  download_url: https://raw.githubusercontent.com/ICEcrysta1/padnorm_plugins/refs/heads/main/plugins/ICE_crystal/github_theme/manifest.yaml
