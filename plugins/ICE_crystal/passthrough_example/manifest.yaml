@@ -10,6 +10,7 @@ files:
 logo: icon.png
 config: config.yaml
 default_language: en
+license: MIT
 name:
   de: Passthrough-Beispiel
   en: Passthrough Example

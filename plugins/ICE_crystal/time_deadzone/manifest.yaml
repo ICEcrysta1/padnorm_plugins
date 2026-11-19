@@ -8,6 +8,7 @@ files:
   - LICENSE
 config: config.yaml
 default_language: en
+license: GPLv3
 name:
   en: Time Anti-Deadzone
   zh-hans: 时间反死区

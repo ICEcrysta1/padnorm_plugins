@@ -18,7 +18,7 @@ OUTPUT = ROOT / "online_repo.yaml"
 RAW_BASE = "https://raw.githubusercontent.com/ICEcrysta1/padnorm_plugins/refs/heads/main"
 
 # 从清单中读取的字段；author 取自 plugins/<author>/<id> 目录
-FIELDS = ("id", "guid", "version", "default_language", "name", "description")
+FIELDS = ("id", "guid", "version", "default_language", "license", "name", "description")
 
 
 def load_entry(manifest_path):
@@ -31,7 +31,7 @@ def load_entry(manifest_path):
 
     entry = {key: manifest[key] for key in ("id", "guid", "version")}
     entry["author"] = manifest_path.parents[1].name
-    for key in ("default_language", "name", "description"):
+    for key in ("default_language", "license", "name", "description"):
         entry[key] = manifest[key]
     # 中文等非 ASCII 路径需百分号编码，否则下载端可能无法请求
     rel_path = manifest_path.relative_to(ROOT).as_posix()

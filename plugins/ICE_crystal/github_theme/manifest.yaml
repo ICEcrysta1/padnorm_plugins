@@ -10,6 +10,7 @@ files:
 - LICENSES.txt
 logo: icon.png
 default_language: en
+license: MIT
 name:
   en: GitHub Theme
 description:

@@ -3,6 +3,7 @@
   version: 0.1.5
   author: ICE_crystal
   default_language: en
+  license: MIT
   name:
     en: GitHub Theme
   description:
@@ -13,6 +14,7 @@
   version: 0.1.0
   author: ICE_crystal
   default_language: en
+  license: MIT
   name:
     de: Passthrough-Beispiel
     en: Passthrough Example
@@ -35,6 +37,7 @@
   version: 0.3.1
   author: ICE_crystal
   default_language: en
+  license: GPLv3
   name:
     en: Time Anti-Deadzone
     zh-hans: 时间反死区
