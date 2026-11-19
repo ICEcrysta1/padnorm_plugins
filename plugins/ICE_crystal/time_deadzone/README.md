@@ -75,3 +75,7 @@
 left_stick:
   plugin: {plugin: ecabea6e-4e13-4dd2-bc0d-9a5afc2ced14, id: stick}
 ```
+
+本项目采用 **GNU General Public License v3（GPL v3）**，完整条款见 [LICENSE](./LICENSE)。
+
+Copyright (C) 2026 ICE_crystal.

@@ -6,6 +6,7 @@ files:
 - icon.png
 - main.lua
 - README.md
+- LICENSE
 - LICENSES.txt
 logo: icon.png
 default_language: en

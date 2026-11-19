@@ -93,3 +93,7 @@
 - https://github.com/primer/github-vscode-theme/tree/cd78e5e4e7bcf132a6f428ae0f32264bb1b729cf
 - https://www.npmjs.com/package/@primer/primitives/v/7.10.0
 - `LICENSES.txt`
+
+本项目采用 **The MIT License（MIT）**，完整条款见 [LICENSE](./LICENSE)。
+
+Copyright (C) 2026 ICE_crystal.

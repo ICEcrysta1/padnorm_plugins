@@ -5,6 +5,7 @@ files:
   - main.lua
   - README.md
   - config.yaml
+  - LICENSE
 config: config.yaml
 default_language: en
 name:

@@ -43,3 +43,7 @@ left_trigger:
 扳机输出强度在 `config.yaml` 中标为 `scope: binding`，默认 100%。把扳机的附加插件选为「直通示例 / 直通扳机」，在右栏「插件配置」里调整，再点「保存并应用」。Lua 在 `process` 中通过 `input.controls.triggers.trigger.config.trigger_strength` 读取当前绑定的值。扳机释放后，该绑定配置可能缺失。
 
 需要独立处理左右轴时，为各轴增加不同注册 ID。完整配置格式、输入输出、生命周期及异步接口见[插件说明](https://github.com/ICEcrysta1/PadNorm/blob/main/plugins/README.md)。
+
+本项目采用 **The MIT License（MIT）**，完整条款见 [LICENSE](./LICENSE)。
+
+Copyright (C) 2026 ICE_crystal.

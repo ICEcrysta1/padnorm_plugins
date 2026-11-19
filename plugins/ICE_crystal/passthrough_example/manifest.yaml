@@ -6,6 +6,7 @@ files:
   - icon.png
   - README.md
   - config.yaml
+  - LICENSE
 logo: icon.png
 config: config.yaml
 default_language: en
