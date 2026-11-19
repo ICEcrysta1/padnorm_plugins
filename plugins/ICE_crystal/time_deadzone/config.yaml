@@ -8,11 +8,13 @@ fields:
     value: 4
     scope: binding
     name:
-      zh-hans: 脉冲宽度
-      zh-hant: 脈衝寬度
+      en: Pulse width
+      zh-hans: 脉宽
+      zh-hant: 脈寬
     description:
-      zh-hans: 每次脉冲的持续时间。占空比由强度除以游戏死区得到，周期再由此推出；宽度越大越容易被下游采样，但低强度时等待越久。缩放型反死区开启时不生效。
-      zh-hant: 每次脈衝的持續時間。占空比由強度除以遊戲死區得到，週期再由此推出；寬度越大越容易被下游取樣，但低強度時等待越久。縮放型反死區開啟時不生效。
+      en: Duration of each pulse. Wider pulses are easier to sample, but low input waits longer. Ignored in rescale mode.
+      zh-hans: 每次脉冲的时长，越大越容易被下游采样，但低强度时等待也更久。缩放模式不生效。
+      zh-hant: 每次脈衝的長度，越大越容易被取樣，但低強度時等待也更久。縮放模式不生效。
   - id: game_deadzone
     type: slider
     min: 0
@@ -22,18 +24,22 @@ fields:
     value: 20
     scope: binding
     name:
+      en: Game deadzone
       zh-hans: 游戏死区
       zh-hant: 遊戲死區
     description:
-      zh-hans: 填写游戏或宿主的死区，例如 20%。时间脉冲模式下按该幅度脉冲，输入超过它后直通，建议填得比实际死区略高；缩放型反死区开启时用它做静态反死区映射，填实际值或略小。
-      zh-hant: 填寫遊戲或宿主的死區，例如 20%。時間脈衝模式下按該幅度脈衝，輸入超過它後直通，建議填得比實際死區略高；縮放型反死區開啟時用它做靜態反死區映射，填實際值或略小。
+      en: Deadzone of the game or host, e.g. 20%. Pulse amplitude in pulse mode (slightly above the real value works best), mapping base in rescale mode.
+      zh-hans: 游戏或宿主的死区，例如 20%。脉冲模式下是脉冲幅度，建议略高于实际值；缩放模式下是映射基准。
+      zh-hant: 遊戲或宿主的死區，例如 20%。脈衝模式下是脈衝幅度，建議略高於實際值；縮放模式下是對應基準。
   - id: rescale_model
     type: toggle
     value: false
     scope: binding
     name:
-      zh-hans: 缩放型反死区
-      zh-hant: 縮放型反死區
+      en: Rescale anti-deadzone
+      zh-hans: 缩放反死区
+      zh-hant: 縮放反死區
     description:
-      zh-hans: 开启后改用静态反死区映射，适配“死区以上的输入会被重新缩放”的游戏；此时只使用“游戏死区”，脉冲宽度不生效。关闭时保持时间脉冲模式。
-      zh-hant: 開啟後改用靜態反死區映射，適配「死區以上的輸入會被重新縮放」的遊戲；此時只使用「遊戲死區」，脈衝寬度不生效。關閉時保持時間脈衝模式。
+      en: Switches to static anti-deadzone mapping for games that rescale input above the deadzone. Only the game deadzone applies.
+      zh-hans: 改用静态反死区映射，适配会重缩放死区以上输入的游戏；开启后只用游戏死区。
+      zh-hant: 改用靜態反死區對應，適用於會重新縮放死區以上輸入的遊戲；開啟後只用遊戲死區。

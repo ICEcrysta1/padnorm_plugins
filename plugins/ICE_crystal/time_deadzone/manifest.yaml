@@ -1,20 +1,23 @@
 id: time_deadzone
 guid: ecabea6e-4e13-4dd2-bc0d-9a5afc2ced14
-version: "0.3.0"
+version: "0.3.1"
 files:
   - main.lua
   - README.md
   - config.yaml
 config: config.yaml
-default_language: zh-hans
+default_language: en
 name:
-  zh-hans: 基于时间的反死区
-  zh-hant: 基於時間的反死區
+  en: Time Anti-Deadzone
+  zh-hans: 时间反死区
+  zh-hant: 時間反死區
 description:
-  zh-hans: 默认把摇杆输入强度转换为脉冲的时间占比，绕过下游死区；也可切换为静态反死区映射，适配会重新缩放死区以上输入的下游。
-  zh-hant: 預設把搖桿輸入強度轉換為脈衝的時間占比，繞過下游死區；也可切換為靜態反死區映射，適配會重新縮放死區以上輸入的下游。
+  en: Pulses input below the deadzone and passes it through above it; can switch to static anti-deadzone mapping.
+  zh-hans: 低于死区时按时间比例脉冲输出，高于死区直通；也可改用静态反死区映射。
+  zh-hant: 低於死區時依時間比例脈衝輸出，高於死區直接通過；也可改用靜態反死區對應。
 sticks:
   - id: stick
     name:
-      zh-hans: 时间反死区摇杆
-      zh-hant: 時間反死區搖桿
+      en: Anti-Deadzone Stick
+      zh-hans: 反死区摇杆
+      zh-hant: 反死區搖桿
