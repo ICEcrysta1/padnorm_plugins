@@ -28,9 +28,9 @@ fields:
       zh-hans: 游戏死区
       zh-hant: 遊戲死區
     description:
-      en: Deadzone of the game or host, e.g. 20%. Pulse amplitude in pulse mode (slightly above the real value works best), mapping base in rescale mode.
-      zh-hans: 游戏或宿主的死区，例如 20%。脉冲模式下是脉冲幅度，建议略高于实际值；缩放模式下是映射基准。
-      zh-hant: 遊戲或宿主的死區，例如 20%。脈衝模式下是脈衝幅度，建議略高於實際值；縮放模式下是對應基準。
+      en: Deadzone of the game after the host curve, e.g. 20%. Pulse mode inversely solves the pulse amplitude from the curve (slightly above the real value works best); rescale mode uses it as the downstream deadzone (use the actual value or slightly lower).
+      zh-hans: 宿主曲线后的游戏死区，例如 20%。脉冲模式下按曲线反解脉冲幅度，建议略高于实际值；缩放模式下作为下游死区，填实际值或略小。
+      zh-hant: 宿主曲線後的遊戲死區，例如 20%。脈衝模式下依曲線反解脈衝幅度，建議略高於實際值；縮放模式下作為下游死區，填實際值或略小。
   - id: rescale_model
     type: toggle
     value: false
@@ -40,6 +40,6 @@ fields:
       zh-hans: 缩放反死区
       zh-hant: 縮放反死區
     description:
-      en: Switches to static anti-deadzone mapping for games that rescale input above the deadzone. Only the game deadzone applies.
-      zh-hans: 改用静态反死区映射，适配会重缩放死区以上输入的游戏；开启后只用游戏死区。
-      zh-hant: 改用靜態反死區對應，適用於會重新縮放死區以上輸入的遊戲；開啟後只用遊戲死區。
+      en: Switches to static anti-deadzone mapping for games that rescale input above the deadzone. The host curve is used to solve the input; only the game deadzone applies.
+      zh-hans: 改用静态反死区映射，适配会重缩放死区以上输入的游戏；按宿主曲线反解输入，开启后只用游戏死区。
+      zh-hant: 改用靜態反死區對應，適用於會重新縮放死區以上輸入的遊戲；依宿主曲線反解輸入，開啟後只用遊戲死區。
