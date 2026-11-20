@@ -6,14 +6,15 @@ local function process_button(state)
     }
 end
 
+-- 直接返回摇杆增量；示例默认保持原位置。
 local function process_stick(state)
-    return { position = { state.position[1], state.position[2] } }
+    return { position = { 0, 0 } }
 end
 
 local config
 
 local function process_trigger(state, strength)
-    return { pressed = state.pressed, value = state.value * strength / 100 }
+    return { delta = state.value * (strength / 100 - 1) }
 end
 
 return {
@@ -52,23 +53,11 @@ return {
             output.buttons[id] = process_button(state)
         end
         for id, state in pairs(input.controls.sticks) do
-            local processed = process_stick(state)
-            -- 宿主会叠加摇杆贡献；只返回变化量，直通时为零，保留原生精度。
-            output.sticks[id] = {
-                position = {
-                    processed.position[1] - state.position[1],
-                    processed.position[2] - state.position[2],
-                },
-            }
+            output.sticks[id] = process_stick(state)
         end
         for id, state in pairs(input.controls.triggers) do
             if state.config then
-                local processed = process_trigger(state, state.config.trigger_strength)
-                output.triggers[id] = {
-                    pressed = processed.pressed,
-                    value = state.value,
-                    delta = processed.value - state.value,
-                }
+                output.triggers[id] = process_trigger(state, state.config.trigger_strength)
             end
         end
         return output
