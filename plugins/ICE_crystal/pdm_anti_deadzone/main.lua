@@ -3,6 +3,7 @@
 -- 开启 rescale_model 时改为静态反死区映射，适配会重新缩放死区以上输入的下游。
 
 local stick_timers = {}
+local stick_curves
 local last_ms
 local last_dt_ms = 0
 
@@ -10,10 +11,6 @@ local function reset_timing()
     stick_timers = {}
     last_ms = nil
     last_dt_ms = 0
-end
-
-local function identity(value)
-    return value
 end
 
 -- 求最小的输入强度，使宿主曲线后的输出不低于 target。
@@ -37,12 +34,10 @@ local function inverse(curve, target)
     return high
 end
 
-local function process_stick(state, timer, now_ms)
+local function process_stick(state, curve, timer, now_ms)
     local binding = state.config
     local x, y = state.position[1], state.position[2]
     local length = math.sqrt(x * x + y * y)
-    -- 旧宿主没有 curve 函数时按恒等映射处理
-    local curve = state.curve or identity
 
     if length <= 0 then
         -- 回中时归零，并让恢复输入后的第一帧立刻出脉冲
@@ -116,6 +111,8 @@ end
 
 return {
     init = function(manifest, host)
+        -- host.curves 在 Init 建立稳定函数，Process 前更新其当前曲线数据
+        stick_curves = host.curves
         reset_timing()
     end,
 
@@ -136,13 +133,14 @@ return {
         local output = { buttons = {}, sticks = {}, triggers = {} }
         for id, state in pairs(input.controls.sticks) do
             -- 绑定级配置缺失时不提交输出，由宿主按原值直通
-            if state.config then
+            local curve = stick_curves[id]
+            if state.config and curve then
                 local timer = stick_timers[id]
                 if timer == nil then
                     timer = {}
                     stick_timers[id] = timer
                 end
-                output.sticks[id] = process_stick(state, timer, now_ms)
+                output.sticks[id] = process_stick(state, curve, timer, now_ms)
             end
         end
         return output

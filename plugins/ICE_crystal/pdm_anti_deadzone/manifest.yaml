@@ -1,6 +1,6 @@
-id: time_deadzone
+id: pdm_anti_deadzone
 guid: ecabea6e-4e13-4dd2-bc0d-9a5afc2ced14
-version: "0.4.0"
+version: "0.5.0"
 author: ICE_crystal
 files:
   - main.lua
@@ -11,9 +11,9 @@ config: config.yaml
 default_language: en
 license: GPLv3
 name:
-  en: Time Anti-Deadzone
-  zh-hans: 时间反死区
-  zh-hant: 時間反死區
+  en: PDM Anti-Deadzone
+  zh-hans: PDM反死区
+  zh-hant: PDM反死區
 description:
   en: Pulses input below the game deadzone according to the host response curve; can switch to static anti-deadzone mapping.
   zh-hans: 按宿主映射曲线求值，低于游戏死区时脉冲输出；也可改用静态反死区映射。

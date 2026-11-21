@@ -32,18 +32,18 @@
     zh-hans: 原样传递抽象输入，可修改源码添加处理逻辑。
     zh-hant: 原樣傳遞抽象化輸入，可修改原始碼加入處理邏輯。
   download_url: https://raw.githubusercontent.com/ICEcrysta1/padnorm_plugins/refs/heads/main/plugins/ICE_crystal/passthrough_example/manifest.yaml
-- id: time_deadzone
+- id: pdm_anti_deadzone
   guid: ecabea6e-4e13-4dd2-bc0d-9a5afc2ced14
-  version: 0.4.0
+  version: 0.5.0
   author: ICE_crystal
   default_language: en
   license: GPLv3
   name:
-    en: Time Anti-Deadzone
-    zh-hans: 时间反死区
-    zh-hant: 時間反死區
+    en: PDM Anti-Deadzone
+    zh-hans: PDM反死区
+    zh-hant: PDM反死區
   description:
     en: Pulses input below the game deadzone according to the host response curve; can switch to static anti-deadzone mapping.
     zh-hans: 按宿主映射曲线求值，低于游戏死区时脉冲输出；也可改用静态反死区映射。
     zh-hant: 依宿主對應曲線求值，低於遊戲死區時脈衝輸出；也可改用靜態反死區對應。
-  download_url: https://raw.githubusercontent.com/ICEcrysta1/padnorm_plugins/refs/heads/main/plugins/ICE_crystal/time_deadzone/manifest.yaml
+  download_url: https://raw.githubusercontent.com/ICEcrysta1/padnorm_plugins/refs/heads/main/plugins/ICE_crystal/pdm_anti_deadzone/manifest.yaml
