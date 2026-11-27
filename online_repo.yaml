@@ -11,7 +11,7 @@
   download_url: https://raw.githubusercontent.com/ICEcrysta1/padnorm_plugins/refs/heads/main/plugins/ICE_crystal/github_theme/manifest.yaml
 - id: passthrough_example
   guid: 019b6bae-8fc4-49c9-aef2-2e392d022e7e
-  version: 0.1.1
+  version: 0.1.2
   author: ICE_crystal
   default_language: en
   license: MIT

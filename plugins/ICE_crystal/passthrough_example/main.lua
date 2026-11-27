@@ -40,8 +40,11 @@ return {
             local state
             if control.button then
                 state = input.raw.buttons[control.button]
-            elseif control.trigger then
-                state = input.raw.triggers[control.trigger]
+            elseif control.axis then
+                local axis = input.raw.axes[control.axis]
+                if axis and axis.kind == "trigger" then
+                    state = axis
+                end
             end
             if not state or not state.pressed then
                 return output
