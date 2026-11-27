@@ -27,10 +27,13 @@ target:
 摇杆和扳机在对应属性页的“附加插件”中选择。配置示例：
 
 ```yaml
-left_stick:
-  plugin: {plugin: 019b6bae-8fc4-49c9-aef2-2e392d022e7e, id: stick}
-left_trigger:
-  plugin: {plugin: 019b6bae-8fc4-49c9-aef2-2e392d022e7e, id: trigger}
+axes:
+  left_stick:
+    kind: stick
+    plugin: {plugin: 019b6bae-8fc4-49c9-aef2-2e392d022e7e, id: stick}
+  left_trigger:
+    kind: trigger
+    plugin: {plugin: 019b6bae-8fc4-49c9-aef2-2e392d022e7e, id: trigger}
 ```
 
 三个处理函数分别返回按钮贡献、摇杆增量和扳机行程增量。
@@ -38,11 +41,11 @@ left_trigger:
 - 按钮分别保留 `pressed` 与 `value`，宿主按 OR 和最大行程合并。
 - 摇杆默认返回零增量。扳机按强度计算行程增量，100% 时为零。宿主将增量叠加到曲线前的轴输入，再应用当前映射的死区和曲线。
 
-插件管理页的两个开关和启用按钮属于全局配置，Lua 在 `init` 中通过 `host.config` 读取。
+插件管理页的两个开关和启用按钮属于全局配置，Lua 在 `init` 中通过 `host.config` 读取。开启「按住按钮启用」后，普通按钮（如 `{button: south}`）从 `input.raw.buttons` 读取；实体扳机（如 `{axis: left_trigger}`）从 `input.raw.axes` 读取。v0.1.2 需要支持该轴接口的 PadNorm。
 
 扳机输出强度在 `config.yaml` 中标为 `scope: binding`，默认 100%。把扳机的附加插件选为「直通示例 / 直通扳机」，在右栏「插件配置」里调整，再点「保存并应用」。Lua 在 `process` 中通过 `input.controls.triggers.trigger.config.trigger_strength` 读取当前绑定的值。扳机释放后，该绑定配置可能缺失。
 
-需要独立处理左右轴时，为各轴增加不同注册 ID。完整配置格式、输入输出、生命周期及异步接口见[插件说明](https://github.com/ICEcrysta1/PadNorm/blob/main/plugins/README.md)。
+需要独立处理左右轴时，为各轴增加不同注册 ID。完整配置格式、输入输出、生命周期及异步接口见[插件说明](https://github.com/ICEcrysta1/PadNorm/blob/main/docs/plugins/README.md)。
 
 本项目采用 **The MIT License（MIT）**，完整条款见 [LICENSE](./LICENSE)。
 

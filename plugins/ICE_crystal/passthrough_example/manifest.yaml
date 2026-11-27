@@ -1,6 +1,6 @@
 id: passthrough_example
 guid: 019b6bae-8fc4-49c9-aef2-2e392d022e7e
-version: "0.1.1"
+version: "0.1.2"
 author: ICE_crystal
 files:
   - main.lua

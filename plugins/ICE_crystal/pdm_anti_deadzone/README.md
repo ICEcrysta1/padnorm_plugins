@@ -85,8 +85,10 @@
 然后在摇杆属性页的“附加插件”中选择“PDM反死区 / 反死区摇杆”。配置示例：
 
 ```yaml
-left_stick:
-  plugin: {plugin: ecabea6e-4e13-4dd2-bc0d-9a5afc2ced14, id: stick}
+axes:
+  left_stick:
+    kind: stick
+    plugin: {plugin: ecabea6e-4e13-4dd2-bc0d-9a5afc2ced14, id: stick}
 ```
 
 本项目采用 **GNU General Public License v3（GPL v3）**，完整条款见 [LICENSE](./LICENSE)。
